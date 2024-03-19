@@ -1,41 +1,33 @@
-package Greetings;
-
-
-public class Greeter {
-    private String name;
-
-    public Greeter(String name) {
-        this.name = name;
+public class Example {
+    // Non-static method
+    public void nonStaticMethod() {
+        System.out.println("This is a non-static method.");
     }
 
-    public static String greetMorning() {
-        return "Good morning!";
+    // Constructor
+    public Example() {
+        System.out.println("Constructor called.");
     }
 
-    public static String greetEvening(int timeOfDay) {
-        if (timeOfDay >= 17 && timeOfDay <= 20) {
-            return "Good evening!";
-        } else {
-            return "It's not quite evening yet.";
-        }
+    // Static method 1
+    public static void staticMethod1() {
+        System.out.println("This is static method 1.");
     }
 
-    public String greetByName() {
-        return "Hello, " + this.name + "!";
+    // Static method 2
+    public static void staticMethod2() {
+        System.out.println("This is static method 2.");
     }
 
     public static void main(String[] args) {
-        // Example usage
-        String myName = "Alice";
+        // Creating an instance of the class to access non-static method and constructor
+        Example example = new Example();
 
-        // Static methods for greetings
-        System.out.println(greetMorning());
+        // Calling the non-static method using the instance
+        example.nonStaticMethod();
 
-        int currentTime = 18; // Adjust for actual time
-        System.out.println(greetEvening(currentTime));
-
-        // Create an object and call non-static method
-        Greeter greeter = new Greeter(myName);
-        System.out.println(greeter.greetByName());
+        // Calling the static methods directly using class name
+        staticMethod1();
+        staticMethod2();
     }
 }
