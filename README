@@ -1,0 +1,41 @@
+package Greetings;
+
+
+public class Greeter {
+    private String name;
+
+    public Greeter(String name) {
+        this.name = name;
+    }
+
+    public static String greetMorning() {
+        return "Good morning!";
+    }
+
+    public static String greetEvening(int timeOfDay) {
+        if (timeOfDay >= 17 && timeOfDay <= 20) {
+            return "Good evening!";
+        } else {
+            return "It's not quite evening yet.";
+        }
+    }
+
+    public String greetByName() {
+        return "Hello, " + this.name + "!";
+    }
+
+    public static void main(String[] args) {
+        // Example usage
+        String myName = "Alice";
+
+        // Static methods for greetings
+        System.out.println(greetMorning());
+
+        int currentTime = 18; // Adjust for actual time
+        System.out.println(greetEvening(currentTime));
+
+        // Create an object and call non-static method
+        Greeter greeter = new Greeter(myName);
+        System.out.println(greeter.greetByName());
+    }
+}
