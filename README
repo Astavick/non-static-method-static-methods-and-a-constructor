@@ -1,33 +1,50 @@
-public class Example {
-    // Non-static method
-    public void nonStaticMethod() {
-        System.out.println("This is a non-static method.");
-    }
+package triangle_calculator;
+import java.util.Scanner;
+
+public class TriangleAreaCalculator {
 
     // Constructor
-    public Example() {
-        System.out.println("Constructor called.");
+    public TriangleAreaCalculator() {
+        // Constructor logic can be added here if needed
     }
 
-    // Static method 1
-    public static void staticMethod1() {
-        System.out.println("This is static method 1.");
+    // Non-static method to get input from the user and calculate the area
+    public void getInputAndCalculateArea() {
+        // Create Scanner object to read input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // Enter the base and height of the triangle
+        System.out.println("Enter the base of the triangle:");
+        double base = scanner.nextDouble();
+
+        System.out.println("Enter the height of the triangle:");
+        double height = scanner.nextDouble();
+
+        // Calculate the area of the triangle
+        double area = calculateArea(base, height);
+
+        // Output the calculated area of the triangle
+        System.out.println("The area of the triangle is: " + area);
+        scanner.close();
     }
 
-    // Static method 2
-    public static void staticMethod2() {
-        System.out.println("This is static method 2.");
+    // Static method to calculate the area of a triangle
+    public static double calculateArea(double base, double height) {
+        return 0.5 * base * height;
+    }
+
+    // Static method to display a message
+    public static void displayMessage() {
+        System.out.println("This is a message from the TriangleAreaCalculator class.");
     }
 
     public static void main(String[] args) {
-        // Creating an instance of the class to access non-static method and constructor
-        Example example = new Example();
+        // Call the non-static method using an instance of the class
+        TriangleAreaCalculator calculator = new TriangleAreaCalculator();
+        calculator.getInputAndCalculateArea();
 
-        // Calling the non-static method using the instance
-        example.nonStaticMethod();
-
-        // Calling the static methods directly using class name
-        staticMethod1();
-        staticMethod2();
+        // Call the static method directly using the class name
+        displayMessage();
     }
 }
+
